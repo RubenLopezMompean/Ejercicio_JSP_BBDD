@@ -95,11 +95,11 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("          <!-- Linea de Alta -->\n");
       out.write("            <tr>\n");
       out.write("              <form method=\"post\" action=\"error.jsp\">\n");
-      out.write("                <td  class=\"td1\"><input type=\"text\" name=\"numero\" maxlength=\"5\" size=\"5\"></td>\n");
+      out.write("                <td  class=\"td1\"><input type=\"text\" name=\"numero\" maxlength=\"5\" size=\"5\" required=\"required\"></td>\n");
       out.write("                <td><input type=\"text\" name=\"nombre\"></td>\n");
       out.write("                <td><input type=\"text\" name=\"apellidos\"></td>\n");
       out.write("                <td><input type=\"text\" name=\"edad\" maxlength=\"4\" size=\"4\"></td>\n");
-      out.write("                <td><input type=\"text\" name=\"dni\" maxlength=\"9\" size=\"9\"></td> \n");
+      out.write("                <td><input type=\"text\" name=\"dni\" maxlength=\"9\" size=\"9\" required=\"required\"</td> \n");
       out.write("                <td><input type=\"text\" name=\"nacionalidad\"></td> \n");
       out.write("                <td><select name=\"posicion\"><option>Portero</option>\n");
       out.write("                <option>Defensa</option><option>Centrocampista</option><option>Delantero</option></select></td>\n");
@@ -176,14 +176,14 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
                           out.print("<option selected>Portero</option><option>Defensa</option>"
                                   + "<option>Centrocampista</option><option>Delantero</option></select></td>");
                       } else if (request.getParameter("modposicion").equals("Defensa")) {
-                          out.print("<option selected>Defensa</option><option>Portero</option><option>Defensa</option>"
+                          out.print("<option>Portero</option><option selected>Defensa</option>"
                                   + "<option>Centrocampista</option><option>Delantero</option></select></td>");
                       } else if (request.getParameter("modposicion").equals("Centrocampista")) {
-                          out.print("<option selected>Portero</option><option>Defensa</option>"
-                                  + "<option>Centrocampista</option><option>Delantero</option></select></td>");
+                          out.print("<option>Portero</option><option>Defensa</option>"
+                                  + "<option selected>Centrocampista</option><option>Delantero</option></select></td>");
                       } else if (request.getParameter("modposicion").equals("Delantero")) {
-                          out.print("<option selected>Portero</option><option>Defensa</option>"
-                                  + "<option>Centrocampista</option><option>Delantero</option></select></td>");
+                          out.print("<option>Portero</option><option>Defensa</option>"
+                                  + "<option>Centrocampista</option><option selected>Delantero</option></select></td>");
                       }
 
               out.print("<td class=\"td2\"><input type=\"hidden\" name=\"update\" value=\"modifica\">" +

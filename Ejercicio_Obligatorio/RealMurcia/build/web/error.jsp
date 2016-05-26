@@ -17,6 +17,9 @@
 
       request.setCharacterEncoding("UTF-8");
       
+      
+      boolean hayError = false;
+      
       // Comprueba la existencia del número de socio introducido
       String consultaCodJu = "SELECT * FROM Plantilla WHERE CodJu="
                                 + Integer.valueOf(request.getParameter("numero"));      
@@ -28,7 +31,25 @@
         %><div style="text-align:center"><% out.println("Lo siento, no se ha "
                 + "podido dar de alta, ya existe un jugador con el dorsal número "
                     + request.getParameter("numero") + ".");
-      } else {
+        hayError = true;
+      }
+
+      // Comprueba la existencia del DNI de socio introducido
+      String consultaDNI = "SELECT * FROM Plantilla WHERE DNI="
+                                + Integer.valueOf(request.getParameter("dni"));      
+      
+      ResultSet numeroDNI = bd.executeQuery (consultaDNI);
+      numeroDNI.last(); 
+      
+      if (numeroDNI.getRow() != 0) {
+        %><div style="text-align:center"><% out.println("Lo siento, no se ha "
+                + "podido dar de alta, ya existe un jugador con el DNI número "
+                    + request.getParameter("dni") + ".");
+        hayError = true;
+      }
+
+
+      if (!hayError) {
         String insert = "Insert INTO Plantilla Values ("
               + Integer.valueOf(request.getParameter("numero")) +  ", " +
               "'" + request.getParameter("nombre") + "', " +

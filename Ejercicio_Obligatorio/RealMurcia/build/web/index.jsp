@@ -46,11 +46,11 @@
           <!-- Linea de Alta -->
             <tr>
               <form method="post" action="error.jsp">
-                <td  class="td1"><input type="text" name="numero" maxlength="5" size="5"></td>
+                <td  class="td1"><input type="text" name="numero" maxlength="5" size="5" required="required"></td>
                 <td><input type="text" name="nombre"></td>
                 <td><input type="text" name="apellidos"></td>
                 <td><input type="text" name="edad" maxlength="4" size="4"></td>
-                <td><input type="text" name="dni" maxlength="9" size="9"></td> 
+                <td><input type="text" name="dni" maxlength="9" size="9" required="required"</td> 
                 <td><input type="text" name="nacionalidad"></td> 
                 <td><select name="posicion"><option>Portero</option>
                 <option>Defensa</option><option>Centrocampista</option><option>Delantero</option></select></td>
